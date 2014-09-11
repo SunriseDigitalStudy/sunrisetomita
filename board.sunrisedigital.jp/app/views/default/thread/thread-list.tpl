@@ -11,6 +11,26 @@
 <div class="alert alert-warning">検索条件に合致するスレッドはありません。</div>
 {/if}
 
+{if $sdx_user->hasId()}
+<div class="alert alert-info">
+  <dl>
+    <dt><i class="fa fa-lock"></i> 管理メニュー</dt>
+    <dd><a href="/control/thread">スレッド追加</a></dd>
+    <dd><a href="/control/genre">ジャンル追加</a></dd>
+    <dd><a href="/control/tag">タグ追加</a></dd>
+  </dl>
+</div>
+{else}
+<div class="alert alert-info">
+  <p>掲示板ユーザー登録を行うと、新規スレッドの追加、書き込みができるようになります。</p>
+  <dl>
+    <dt>ログインメニュー</dt>
+    <dd><i class="fa fa-sign-in"></i><a href="/account/create"> ユーザー登録</a></dd>
+    <dd><i class="fa fa-sign-in"></i><a href="/secure/login"> ログイン</a></dd>
+  </dl>
+</div>
+{/if}
+
 <div class="thread_list">
   {foreach $thread_list as $record}
   <table class="table table-bordered">
